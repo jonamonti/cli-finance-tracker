@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
+import MonefyLogo from "components/MonefyLogo";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
   const firstName = user?.firstName || 'Jona';
 
   // functions
-  const handleClick = () => {
+  const handleNavigate = () => {
     navigate('/home');
   };
 
@@ -44,19 +45,7 @@ const Navbar = () => {
     <FlexBetween padding='1rem 6%' backgroundColor='alt'>
 
       <FlexBetween gap='1.75rem'>
-        <Typography
-          fontWeight='bold'
-          fontSize={'clap(1rem, 2rem, 2.25rem)'}
-          color='primary'
-          onClick={handleClick}
-          sx={{
-            "&:hover": {
-              color: primaryLight,
-              cursor: "pointer"
-            }
-          }}>
-          Monefy
-        </Typography>
+        <MonefyLogo handleClick={handleNavigate} />
         { // hide search bar if screen is small
           isNotMobile && (
             <FlexBetween backgroundColor={neutralLight} borderRadius='6px' gap='2.5rem' padding='0.1rem 1.5rem'>
