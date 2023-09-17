@@ -1,9 +1,41 @@
-import React from 'react'
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import MonefyLogo from "components/MonefyLogo";
+import Form from "./Form";
 
 const LoginPage = () => {
+  const { palette } = useTheme();
+  const alt = palette.background.alt;
+  const isNotMobile = useMediaQuery('(min-widht: 1000px');
+
   return (
-    <div>LoginPage</div>
+    <Box>
+      <Box
+        width='100%'
+        backgroundColor={alt}
+        p='1rem 6%'
+        textAlign='center'
+      >
+        <MonefyLogo />
+      </Box>
+
+      <Box
+        width={isNotMobile ? '50%' : '80%'}
+        p='2rem'
+        m='2rem auto'
+        borderRadius='1.5rem'
+        backgroundColor={alt}
+      >
+        <Typography fontWeight='500' variant='h5' sx={{ mb: '1.5rem' }}>
+          Ready to track your expenses easily? Welcome to Monefy!
+        </Typography>
+        <Form />
+
+      </Box>
+    </Box>
   )
 }
 
 export default LoginPage
+
+
+
