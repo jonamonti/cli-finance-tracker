@@ -1,5 +1,6 @@
 import { Typography, useTheme } from "@mui/material";
 
+
 const MonefyLogo = ({ handleClick }) => {
   const { palette } = useTheme();
   const primaryLight = palette.primary.light;

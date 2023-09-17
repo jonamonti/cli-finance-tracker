@@ -35,6 +35,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(setLogout());
+    navigate('/');
   };
 
   const handleOpen = () => {
@@ -53,7 +54,6 @@ const Navbar = () => {
               <IconButton>
                 <Search />
               </IconButton>
-
             </FlexBetween>
           )
         }
