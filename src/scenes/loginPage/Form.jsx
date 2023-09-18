@@ -9,6 +9,7 @@ import { json, useNavigate } from "react-router-dom";
 import { setLogin } from "state";
 import FlexBetween from "components/FlexBetween";
 import Dropzone from "react-dropzone";
+import { toast } from "react-hot-toast";
 
 // controller for registration form
 const registrationSchema = yup.object().shape({
@@ -88,14 +89,22 @@ const Form = () => {
       }
     );
 
+    try {
+
+    } catch (error) {
+
+    }
     const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
-    if (loggedIn) {
+    if (!loggedIn.message) {
       dispatch(setLogin({
         user: loggedIn.user,
         token: loggedIn.token
       }));
       navigate('/home');
+      toast.success(`Welcome back ${loggedIn.user.firstName}`)
+    } else {
+      toast.error(loggedIn.message)
     }
 
   }
@@ -231,12 +240,14 @@ const Form = () => {
             <Button
               fullWidth
               type='submit'
+              // disabled={isLogin ? false : !values.firstName || !values.lastName || !values.email || !values.password}
               sx={{
                 m: '2rem 0',
                 p: '1rem',
                 backgroundColor: palette.primary.main,
                 color: palette.background.alt,
-                '&:hover': { color: palette.primary.main }
+                '&:hover': { color: palette.primary.main },
+                '& .MuiButtonBase-root:disabled': { color: 'white' }
               }}>
               {isLogin ? 'LOGIN' : 'REGISTER'}
             </Button>
