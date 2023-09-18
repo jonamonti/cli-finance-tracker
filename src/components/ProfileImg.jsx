@@ -4,8 +4,10 @@ const ProfileImg = ({ image, size = '60px' }) => {
   return (
     <Box width={size} height={size}>
       <img
-        alt='userPicture'
         style={{ objectFit: 'cover', borderRadius: '50%' }}
+        width={size}
+        height={size}
+        alt='userPicture'
         src={`http://localhost:1337/assets/${image}`}
       />
 
