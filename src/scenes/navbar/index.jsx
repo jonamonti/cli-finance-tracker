@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery } from "@mui/material";
-import { DarkMode, LightMode, Notifications, Help, Search, Menu, Close, Message } from "@mui/icons-material";
+import { DarkMode, LightMode, Notifications, Help, Search, Menu, Close, Message, HomeOutlined } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
@@ -71,15 +71,15 @@ const Navbar = () => {
             }
 
           </IconButton>
-          <Message sx={{ fontSize: '20px' }} />
-          <Notifications sx={{ fontSize: '20px' }} />
-          <Help sx={{ fontSize: '20px' }} />
+          <IconButton onClick={handleNavigate}>
+            <HomeOutlined sx={{ fontSize: '20px' }} />
+          </IconButton>
           <FormControl
             variant='standard'
             value={firstName}
             sx={{
-              '& .MuiFormControl-root': {
-                borderRadius: '6px'
+              '& .MuiInputBase-root': {
+                borderRadius: '6px',
               }
             }}>
             <Select
