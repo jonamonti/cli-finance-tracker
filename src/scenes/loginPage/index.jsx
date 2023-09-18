@@ -5,7 +5,7 @@ import Form from "./Form";
 const LoginPage = () => {
   const { palette } = useTheme();
   const alt = palette.background.alt;
-  const isNotMobile = useMediaQuery('(min-widht: 1000px');
+  const isNotMobile = useMediaQuery('(min-width: 1000px');
 
   return (
     <Box>
@@ -19,7 +19,8 @@ const LoginPage = () => {
       </Box>
 
       <Box
-        width={isNotMobile ? '50%' : '80%'}
+        width={isNotMobile ? '60%' : '80%'}
+        // maxWidth='800px'
         p='2rem'
         m='2rem auto'
         borderRadius='1.5rem'
