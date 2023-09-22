@@ -1,6 +1,6 @@
 # personal-finance-tracker
 
-Hi everyone! Thanks for takin the time to check this personal finance tracker web.
+Hi everyone! Thanks for taking the time to check this personal finance tracker web.
 
 This proyect was built with MERN stack.
 
