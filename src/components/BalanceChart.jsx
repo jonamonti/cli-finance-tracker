@@ -1,4 +1,4 @@
-import { Typography, useTheme } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
@@ -13,6 +13,7 @@ import {
 import FlexBetween from "./FlexBetween";
 
 const BalanceChart = () => {
+  const isNotMobile = useMediaQuery('(min-width: 1000px)');
   const { palette } = useTheme();
   const alt = palette.background.alt;
   const dark = palette.neutral.dark;
@@ -32,7 +33,7 @@ const BalanceChart = () => {
       });
     }
   }
-  console.log(arr);
+  // console.log(arr);
 
   const data = useMemo(() => {
     return (
@@ -48,10 +49,14 @@ const BalanceChart = () => {
   }, [incomeByDateRange, expensesByDateRange]);
 
   return (
-    <Box sx={{ width: '750px', height: '325px', backgroundColor: alt, borderRadius: "0.75rem", marginLeft: '1rem' }}>
+    <Box sx={{
+      height: '325px',
+      backgroundColor: alt,
+      borderRadius: "0.75rem"
+    }}>
       <FlexBetween color={palette.grey[400]} margin="0rem 1rem 0rem">
         <FlexBetween>
-          <Box width="100%" m={'1rem'}>
+          <Box m={'1rem'}>
             <Typography variant='h4'
               color={dark}
               fontWeight='500'>
@@ -62,7 +67,6 @@ const BalanceChart = () => {
       </FlexBetween>
       <ResponsiveContainer width="100%" height="75%">
         <BarChart
-          width={500}
           height={300}
           data={data}
           margin={{

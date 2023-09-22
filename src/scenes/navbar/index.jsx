@@ -20,12 +20,11 @@ const Navbar = () => {
   const neutralLight = palette.neutral.light;
   const dark = palette.neutral.dark;
   const background = palette.background.default;
-  const alt = palette.background.alt
-  const primaryLight = palette.primary.light;
-  const firstName = user?.firstName || 'Jona';
+  const firstName = user?.firstName;
 
   // functions
   const handleNavigate = () => {
+    if (isMenuOpen) setIsMenuOpen(!isMenuOpen);
     navigate('/home');
   };
 
@@ -121,11 +120,11 @@ const Navbar = () => {
         <Box
           position='fixed'
           right='0'
-          bottom='0'
-          height='100%'
+          top='0'
+          height='40%'
           zIndex='10'
-          maxWidth='500px'
-          minWidth='300px'
+          maxWidth='45%'
+          minWidth='45%'
           backgroundColor={background}
         >
           <Box display='flex' justifyContent='flex-end' p='1rem'>
@@ -143,9 +142,9 @@ const Navbar = () => {
               }
 
             </IconButton>
-            <Message sx={{ fontSize: '20px' }} />
-            <Notifications sx={{ fontSize: '20px' }} />
-            <Help sx={{ fontSize: '20px' }} />
+            <IconButton onClick={handleNavigate}>
+              <HomeOutlined sx={{ fontSize: '20px' }} />
+            </IconButton>
             <FormControl
               variant='standard'
               value={firstName}

@@ -13,51 +13,32 @@ const HomePage = () => {
   return (
     <Box>
       <Navbar />
+      {/* MAIN CANVAS */}
       <Box
-        width="100%"
-        padding="0rem 6%"
-        // display={isNotMobile ? "flex" : "block"}
-        display={'flex'}
-        flexDirection={isNotMobile ? "row" : "column"}
-        gap="1rem"
-        justifyContent="flex-start"
+        width={'100%'}
+        display={isNotMobile ? 'flex' : 'block'}
+        p='2rem 6%'
+        gap='1.5rem'
+        justifyContent={'space-between'}
       >
-        <Box flexBasis={isNotMobile ? "35%" : undefined}>
+        {/* FIRST COLUMN */}
+        <Box
+          flexBasis={isNotMobile ? "35%" : undefined}
+        >
           <UserCard userId={_id} />
-        </Box>
-        <Box flexBasis={isNotMobile ? "60%" : undefined} >
-          <NewTransaction />
-        </Box>
-      </Box>
-      <Box
-        width="100%"
-        padding="0rem 6%"
-        // display={isNotMobile ? "flex" : "block"}
-        display={'flex'}
-        flexDirection={isNotMobile ? "row" : "column"}
-        gap="0.5rem"
-        justifyContent="flex-start"
-      >
-        {/* <Box
-          width="100%"
-          // padding="1rem 6%"
-          // display={isNotMobile ? "flex" : "block"}
-          display={'flex'}
-          flexDirection={isNotMobile ? "row" : "column"}
-          gap="1rem"
-          justifyContent="flex-start"
-        > */}
-        <Box flexBasis={isNotMobile ? "35%" : undefined}>
           <TrxHistory />
         </Box>
-        <Box flexBasis={isNotMobile ? "35%" : undefined}>
+        {/* SECOND COLUMN */}
+        <Box
+          flexBasis={isNotMobile ? "65%" : undefined}
+          mt={isNotMobile ? undefined : "2rem"}
+        >
+          <NewTransaction />
           <BalanceChart />
+
         </Box>
       </Box>
-
     </Box>
-
-    // </Box>
   )
 }
 

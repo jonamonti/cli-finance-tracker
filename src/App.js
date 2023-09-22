@@ -9,6 +9,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { themeSettings } from 'theme';
 import { Toaster } from 'react-hot-toast';
+// import Test from "scenes/test/Test";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="app">
       <Toaster
-        position="top-right"
+        position="top-center"
         toastOptions={{
           className: '',
           style: {
@@ -28,17 +29,18 @@ function App() {
         }}
       />
       <BrowserRouter>
-        <ThemeProvider theme={theme}> 
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/home" element={ isAuth ? <HomePage /> : <Navigate to='/'/>} />
+            <Route path="/home" element={isAuth ? <HomePage /> : <Navigate to='/' />} />
             <Route path="/profile/:userID" element={isAuth ? <ProfilePage /> : <Navigate to='/' />} />
-            <Route path="/transactions" element={ isAuth ? <TrxHistoryPage /> : <Navigate to='/'/>} />
+            <Route path="/transactions" element={isAuth ? <TrxHistoryPage /> : <Navigate to='/' />} />
+            {/* <Route path="/test" element={isAuth ? <Test /> : <Navigate to='/' />} /> */}
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
-      
+
     </div>
   );
 }
