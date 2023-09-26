@@ -58,7 +58,7 @@ const TrxHistoryPage = () => {
         <Wrapper>
           <FlexBetween gap='0.5rem' pb='1.1rem'>
             <FlexBetween gap='1rem'>
-              <Box width={'500px'}>
+              <Box width={'100%'}>
                 <Typography
                   variant='h4'
                   color={dark}

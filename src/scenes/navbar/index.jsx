@@ -47,14 +47,14 @@ const Navbar = () => {
       <FlexBetween gap='1.75rem'>
         <MonefyLogo handleClick={handleNavigate} />
         { // hide search bar if screen is small
-          isNotMobile && (
-            <FlexBetween backgroundColor={neutralLight} borderRadius='6px' gap='2.5rem' padding='0.1rem 1.5rem'>
-              <InputBase placeholder="Search ..." />
-              <IconButton>
-                <Search />
-              </IconButton>
-            </FlexBetween>
-          )
+          // isNotMobile && (
+          //   <FlexBetween backgroundColor={neutralLight} borderRadius='6px' gap='2.5rem' padding='0.1rem 1.5rem'>
+          //     <InputBase placeholder="Search ..." />
+          //     <IconButton>
+          //       <Search />
+          //     </IconButton>
+          //   </FlexBetween>
+          // )
         }
       </FlexBetween>
 
@@ -118,13 +118,13 @@ const Navbar = () => {
       {/* mobile */}
       {!isNotMobile && isMenuOpen ? (
         <Box
-          position='fixed'
-          right='0'
-          top='0'
-          height='40%'
-          zIndex='10'
-          maxWidth='45%'
-          minWidth='45%'
+          position="fixed"
+          right="0"
+          top="0"
+          height="60%"
+          zIndex="10"
+          maxWidth="500px"
+          minWidth="300px"
           backgroundColor={background}
         >
           <Box display='flex' justifyContent='flex-end' p='1rem'>
@@ -157,16 +157,16 @@ const Navbar = () => {
                 value={firstName}
                 sx={{
                   backgroundColor: neutralLight,
-                  width: '150px',
-                  p: '0.25rem 1rem',
-                  '& .MuiSvgIcon-root': {
-                    pr: '0.25rem',
-                    width: '3rem'
+                  width: "150px",
+                  borderRadius: "0.25rem",
+                  p: "0.25rem 1rem",
+                  "& .MuiSvgIcon-root": {
+                    pr: "0.25rem",
+                    width: "3rem",
                   },
-                  '& MuiSelect-select:focus': {
+                  "& .MuiSelect-select:focus": {
                     backgroundColor: neutralLight,
-
-                  }
+                  },
                 }}
                 input={<InputBase />}
               >
